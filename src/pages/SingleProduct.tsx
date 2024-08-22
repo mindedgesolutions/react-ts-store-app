@@ -5,8 +5,9 @@ import {
 } from "@/components";
 import { Mode } from "@/components/SelectProductAmount";
 import { Button } from "@/components/ui/button";
-import { toast } from "@/components/ui/use-toast";
-import { customFetch, type SingleProductReponse } from "@/utils";
+import { addItem } from "@/features/cart/cartSlice";
+import { useAppDispatch } from "@/hooks";
+import { customFetch, type SingleProductReponse, type CartItem } from "@/utils";
 import { currencyFormat } from "@/utils/formatAsInr";
 import { useState } from "react";
 import { type LoaderFunction, useLoaderData } from "react-router-dom";
@@ -21,13 +22,21 @@ const SingleProduct = () => {
   const formattedPrice = currencyFormat(price);
   const [productColor, setProductColor] = useState(colors[0]);
   const [amount, setAmount] = useState(1);
+  const dispatch = useAppDispatch();
+
+  const cartProduct: CartItem = {
+    cartId: product.id + productColor,
+    amount,
+    company,
+    image,
+    price,
+    productColor,
+    productId: product.id,
+    title: product.attributes.title,
+  };
 
   const addToCart = () => {
-    console.log(`add to cart`);
-    toast({
-      title: `Added`,
-      description: `Product added in your cart`,
-    });
+    dispatch(addItem(cartProduct));
   };
 
   return (

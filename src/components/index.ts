@@ -1,5 +1,7 @@
 export { default as Header } from "./Header";
 export { default as CartBtn } from "./CartBtn";
+export { default as CartItemList } from "./CartItemList";
+export { default as CartTotals } from "./CartTotals";
 export { default as LinksDropdown } from "./LinksDropdown";
 export { default as Logo } from "./Logo";
 export { default as ModeToggle } from "./ModeToggle";
@@ -23,3 +25,5 @@ export { default as FormCheckbox } from "./FormCheckbox";
 export { default as SelectProductColor } from "./SelectProductColor";
 export { default as SelectProductAmount } from "./SelectProductAmount";
 export { default as SingleProductBreadcrumb } from "./SingleProductBreadcrumb";
+export { default as SubmitBtn } from "./SubmitBtn";
+export { default as CheckoutForm } from "./CheckoutForm";

@@ -3,6 +3,8 @@ import { customFetch, type ProductResponse } from "@/utils";
 import { type LoaderFunction } from "react-router-dom";
 
 const Landing = () => {
+  document.title = `Welcome | ${import.meta.env.VITE_APP_TITLE}`;
+
   return (
     <>
       <Hero />

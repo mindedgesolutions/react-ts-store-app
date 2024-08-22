@@ -6,7 +6,7 @@ const defaultState: CartState = {
   cartItems: [],
   numItemsInCart: 0,
   cartTotal: 0,
-  shipping: 100,
+  shipping: 10000,
   tax: 0,
   orderTotal: 0,
 };
@@ -18,7 +18,7 @@ const getCartFromLocalStorage = (): CartState => {
 
 const cartSlice = createSlice({
   name: "cart",
-  initialState: defaultState,
+  initialState: getCartFromLocalStorage(),
   reducers: {
     // Add item ------
     addItem: (state, action: PayloadAction<CartItem>) => {
